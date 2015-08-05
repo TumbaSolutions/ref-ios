@@ -1,0 +1,6 @@
+dependencies:
+  pre:
+    - git clone https://github.com/nomad/cupertino
+    - gem install cupertino
+    - ios login -u $CUPERTINO_USER -p $CUPERTINO_USER_PASS
+    - ios profiles:list
