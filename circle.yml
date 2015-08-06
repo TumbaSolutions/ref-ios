@@ -3,7 +3,7 @@ dependencies:
     - git clone https://github.com/nomad/cupertino
     - gem install cupertino
     - ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u $APPLE_USER -p $APPLE_PASS
-    - ios certificates:download $APPLE_CERT -u $APPLE_USER -p $APPLE_PASS
+#    - ios certificates:download $APPLE_CERT -u $APPLE_USER -p $APPLE_PASS
 test:
   override:
     - xctool
