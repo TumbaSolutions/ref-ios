@@ -2,5 +2,19 @@ dependencies:
   pre:
     - git clone https://github.com/nomad/cupertino
     - gem install cupertino
-    - echo 3 | ios profiles:list -u $CUPERTINO_USER -p $CUPERTINO_USER_PASS
-    - ios --help
+    - ios profiles:download $DEV_PROVIOSNING_PROFILE -u $APPLE_USER -p $APPLE_PASS
+    - ios certificates:download $APPLE_CERT -u $APPLE_USER -p $APPLE_PASS
+test:
+  override:
+    - xctool
+      -reporter pretty
+      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
+      -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
+      CODE_SIGNING_REQUIRED=YES
+      CODE_SIGN_IDENTITY=$DEV_PROVIOSNING_PROFILE
+      PROVISIONING_PROFILE=$DEV_PROVIOSNING_PROFILE
+      -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+      -sdk iphonesimulator
+      -workspace project.xcworkspace
+      -scheme "My scheme"
+      build build-tests run-tests
