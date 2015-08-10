@@ -14,7 +14,7 @@ dependencies:
       CODE_SIGNING_REQUIRED=YES
       CODE_SIGN_IDENTITY="$DEV_PROVIOSNING_PROFILE"
       PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
-      -destination 'platform=iOS Simulator,name=iPhone 5'
+      -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
       -workspace "Untitled.xcworkspace"
       -scheme "RefIOS"
