@@ -6,7 +6,7 @@ dependencies:
     - git clone https://github.com/nomad/cupertino
     - sudo gem install cupertino
     - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
-    - security import -A dimitar_csi.developerprofile -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign
+    - security import dimitar_csi.developerprofile -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign
   override:
     - xctool
       -reporter pretty
