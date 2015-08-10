@@ -1,9 +1,11 @@
 dependencies:
   pre:
+    - curl -sSL https://get.rvm.io | bash -s stable --ruby
+    - sudo gem install bundler
+    - bundle install
     - git clone https://github.com/nomad/cupertino
-    - gem install cupertino
-    - ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u $APPLE_USER -p $APPLE_PASS
-  
+    - sudo gem install cupertino
+    - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
   override:
     - xctool
       -reporter pretty
@@ -14,6 +16,6 @@ dependencies:
       PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
       -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
       -sdk iphonesimulator
-      -workspace MyWorkspace.xcworkspace
-      -scheme "My Scheme"
+      #-workspace MyWorkspace.xcworkspace
+      -scheme "RefIOS.xcscheme"
       build build-tests run-tests
