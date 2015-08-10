@@ -16,6 +16,6 @@ dependencies:
       PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
       -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
       -sdk iphonesimulator
-      #-workspace MyWorkspace.xcworkspace
+      -workspace "contents.xcworkspacedata"
       -scheme "RefIOS.xcscheme"
       build build-tests run-tests
