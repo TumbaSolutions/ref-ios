@@ -343,8 +343,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SDKROOT[arch=*]" = iphoneos;
 			};
 			name = Debug;
 		};
@@ -353,8 +355,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SDKROOT[arch=*]" = iphoneos;
 			};
 			name = Release;
 		};
@@ -411,6 +416,7 @@
 				D49360BB1B6F93D30060E085 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D49360BC1B6F93D30060E085 /* Build configuration list for PBXNativeTarget "RefIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +425,7 @@
 				D49360BE1B6F93D30060E085 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
