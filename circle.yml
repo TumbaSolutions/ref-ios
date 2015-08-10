@@ -6,13 +6,14 @@ dependencies:
     - git clone https://github.com/nomad/cupertino
     - sudo gem install cupertino
     - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
+    - security import dimitar_csi.developerprofile -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T -A /usr/bin/codesign
   override:
     - xctool
       -reporter pretty
       -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
       -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
       CODE_SIGNING_REQUIRED=YES
-      CODE_SIGN_IDENTITY="$DEV_PROVIOSNING_PROFILE"
+      CODE_SIGN_IDENTITY="iPhone Developer: Dimitar Damyanov (72ZASU6629)"
       PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
       -destination 'platform=iOS Simulator,name=iPhone 5'
       -sdk iphonesimulator
