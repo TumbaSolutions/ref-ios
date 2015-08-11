@@ -12,8 +12,12 @@ dependencies:
       -reporter pretty
       -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
       -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
+      CODE_SIGNING_ALLOWED=YES
       CODE_SIGNING_REQUIRED=YES
-      CODE_SIGN_IDENTITY="iPhone\ Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
+      EXPANDED_CODE_SIGN_IDENTITY="iPhone Developer: Dimitar Damyanov (72ZASU6629)"
+      EXPANDED_CODE_SIGN_IDENTITY_NAME="Dimitar Damyanov"
+      EXPANDED_PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
+      CODE_SIGN_IDENTITY="iPhone Developer: Dimitar Damyanov (72ZASU6629)"
       PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
