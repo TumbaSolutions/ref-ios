@@ -7,6 +7,8 @@ dependencies:
     - sudo gem install cupertino
     - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
     - security import dimitar.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign
+    - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
+    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
   override:
     - xctool
       -reporter pretty
