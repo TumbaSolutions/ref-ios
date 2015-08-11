@@ -16,11 +16,9 @@ dependencies:
       -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
       CODE_SIGNING_ALLOWED=YES
       CODE_SIGNING_REQUIRED=YES
-      EXPANDED_CODE_SIGN_IDENTITY="iPhone Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
-      EXPANDED_CODE_SIGN_IDENTITY_NAME="Dimitar Damyanov"
-      EXPANDED_PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
+      EXPANDED_CODE_SIGN_IDENTITY=A26658D4BF2781398EA2F74EEFDA7AF4B20FFC7A
       CODE_SIGN_IDENTITY="iPhone Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
-      PROVISIONING_PROFILE="$DEV_PROVIOSNING_PROFILE"
+      PROVISIONING_PROFILE="4e818e4c-4b5d-4ba8-b97f-206ec6b9084d"
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
       -workspace "Untitled.xcworkspace"
