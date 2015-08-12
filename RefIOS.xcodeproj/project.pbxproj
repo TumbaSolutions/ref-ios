@@ -59,9 +59,9 @@
 		D49360911B6F93D30060E085 = {
 			isa = PBXGroup;
 			children = (
+				D493609B1B6F93D30060E085 /* Products */,
 				D493609C1B6F93D30060E085 /* RefIOS */,
 				D49360B21B6F93D30060E085 /* RefIOSTests */,
-				D493609B1B6F93D30060E085 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -342,11 +342,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dimitar Damyanov (72ZASU6629)";
 				INFOPLIST_FILE = RefIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				"SDKROOT[arch=*]" = iphoneos;
 			};
 			name = Debug;
@@ -361,6 +363,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				"SDKROOT[arch=*]" = iphoneos;
 			};
 			name = Release;
@@ -369,6 +372,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dimitar Damyanov (72ZASU6629)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -380,6 +385,7 @@
 				INFOPLIST_FILE = RefIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefIOS.app/RefIOS";
 			};
 			name = Debug;
@@ -388,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dimitar Damyanov (72ZASU6629)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -395,6 +402,7 @@
 				INFOPLIST_FILE = RefIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefIOS.app/RefIOS";
 			};
 			name = Release;
