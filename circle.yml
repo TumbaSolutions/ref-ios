@@ -20,4 +20,4 @@ dependencies:
       -sdk iphonesimulator
       -workspace "Untitled.xcworkspace"
       -scheme "RefIOS"
-      build build-test run-tests
+      build test
