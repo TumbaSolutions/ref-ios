@@ -6,7 +6,6 @@ dependencies:
     - git clone https://github.com/nomad/cupertino
     - sudo gem install cupertino
     - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
-    - sudo security unlock-keychain
     - security import devpro.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
     - security find-identity -v -p codesigning
     - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
