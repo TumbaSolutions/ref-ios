@@ -7,6 +7,7 @@ dependencies:
     - sudo gem install cupertino
     - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
     - security import devpro.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign
+    - security find-identity -v -p codesigning
     - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
     - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
   override:
@@ -17,7 +18,7 @@ dependencies:
       CODE_SIGNING_ALLOWED=YES
       CODE_SIGNING_REQUIRED=YES
       XCODE_SCHEME=RefIOS
-      EXPANDED_CODE_SIGN_IDENTITY=72D25083F39D78697553D58F7AE8F708892A688B
+      EXPANDED_CODE_SIGN_IDENTITY="72D25083F39D78697553D58F7AE8F708892A688B"
       CODE_SIGN_IDENTITY="iPhone Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
       PROVISIONING_PROFILE="55a4ef68-4c2d-4885-87eb-0705b0c17ac7"
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'

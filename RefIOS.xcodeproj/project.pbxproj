@@ -387,7 +387,7 @@
 				INFOPLIST_FILE = RefIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefIOS.app/RefIOS";
 			};
 			name = Debug;
@@ -404,7 +404,7 @@
 				INFOPLIST_FILE = RefIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4e818e4c-4b5d-4ba8-b97f-206ec6b9084d";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RefIOS.app/RefIOS";
 			};
 			name = Release;
