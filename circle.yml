@@ -1,28 +1,15 @@
-dependencies:
-  pre:
-    - curl -sSL https://get.rvm.io | bash -s stable --ruby
-    - sudo gem install bundler
-    - bundle install
-    - git clone https://github.com/nomad/cupertino
-    - sudo gem install cupertino
-    - sudo ios profiles:download "$DEV_PROVIOSNING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
-    - security import devpro.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
-    - security find-identity -v -p codesigning
-    - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
-    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/55a4ef68-4c2d-4885-87eb-0705b0c17ac.mobileprovision 
+test:
   override:
+    - xctool reporter pretty CODE_SIGNING_REQUIRED=NO -workspace "Untitled.xcworkspace" -scheme "RefIOS" test -sdk iphonesimulator
     - xctool
       -reporter pretty
       -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
       -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
-      CODE_SIGNING_ALLOWED=YES
-      CODE_SIGNING_REQUIRED=YES
-      XCODE_SCHEME=RefIOS
-      EXPANDED_CODE_SIGN_IDENTITY="72D25083F39D78697553D58F7AE8F708892A688B"
-      CODE_SIGN_IDENTITY="iPhone Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
-      PROVISIONING_PROFILE="55a4ef68-4c2d-4885-87eb-0705b0c17ac7"
+      CODE_SIGNING_REQUIRED=NO
+      CODE_SIGN_IDENTITY=
+      PROVISIONING_PROFILE=
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
       -workspace "Untitled.xcworkspace"
       -scheme "RefIOS"
-      build
+      build test
