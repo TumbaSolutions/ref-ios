@@ -22,8 +22,6 @@ test:
       EXPANDED_CODE_SIGN_IDENTITY="72D25083F39D78697553D58F7AE8F708892A688B"
       CODE_SIGN_IDENTITY="iPhone Developer\:\ Dimitar\ Damyanov\ \(72ZASU6629\)"
       PROVISIONING_PROFILE="55a4ef68-4c2d-4885-87eb-0705b0c17ac7"
-      -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
-      -sdk iphonesimulator
       -workspace "Untitled.xcworkspace"
       -scheme "RefIOS"
       build
