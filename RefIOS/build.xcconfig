@@ -1,0 +1,1 @@
+CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist
