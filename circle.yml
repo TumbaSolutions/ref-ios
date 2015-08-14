@@ -10,10 +10,13 @@ dependencies:
     - security import devpro.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
     - security find-identity -v -p codesigning
     - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
-    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/55a4ef68-4c2d-4885-87eb-0705b0c17ac.mobileprovision 
+    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/$EXPANDED_CODE_SIGNING_IDENTITY.mobileprovision 
 test:
   override:
-    - xcodebuild
+    - xctool
+      -reporter pretty
+      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
+      -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
       BUILD_DIR="`pwd`/build"
       BUILD_ROOT="`pwd`/build"
       CODE_SIGNING_ALLOWED=YES
