@@ -7,7 +7,7 @@ dependencies:
     - security import ad_hoc.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
     - security find-identity -v -p codesigning
     - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
-    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/12499c19-6c60-42f8-8401-50dfb929d070.mobileprovision 
+    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ccd95bdf-c108-4201-93e8-5745f196a2c6.mobileprovision 
 test:
   override:
     - xctool
@@ -19,9 +19,9 @@ test:
       CODE_SIGNING_ALLOWED=YES
       CODE_SIGNING_REQUIRED=YES
       XCODE_SCHEME="$SCHEME_XCODE"
-      EXPANDED_CODE_SIGN_IDENTITY=12499c19-6c60-42f8-8401-50dfb929d070
+      EXPANDED_CODE_SIGN_IDENTITY=ccd95bdf-c108-4201-93e8-5745f196a2c6
       CODE_SIGN_IDENTITY="$CODE_SINING_IDENTITY"
-      PROVISIONING_PROFILE=12499c19-6c60-42f8-8401-50dfb929d070
+      PROVISIONING_PROFILE=ccd95bdf-c108-4201-93e8-5745f196a2c6
       -workspace "$WORKSPACE_XCODE"
       -scheme $SCHEME_XCODE
       build
