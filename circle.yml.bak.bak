@@ -1,0 +1,32 @@
+dependencies:
+  pre:
+    - mkdir -p `pwd`/build
+    - curl -sSL https://get.rvm.io | bash -s stable --ruby
+    - sudo gem install bundler
+    - bundle install
+    - security import ad_hoc.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
+    - security find-identity -v -p codesigning
+    - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
+    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ccd95bdf-c108-4201-93e8-5745f196a2c6.mobileprovision 
+test:
+  override:
+    - xctool
+      -reporter pretty
+      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
+      -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
+      BUILD_DIR="`pwd`/build"
+      BUILD_ROOT="`pwd`/build"
+      CODE_SIGNING_ALLOWED=YES
+      CODE_SIGNING_REQUIRED=YES
+      XCODE_SCHEME="$SCHEME_XCODE"
+      EXPANDED_CODE_SIGN_IDENTITY=ccd95bdf-c108-4201-93e8-5745f196a2c6
+      CODE_SIGN_IDENTITY="$CODE_SINING_IDENTITY"
+      PROVISIONING_PROFILE=ccd95bdf-c108-4201-93e8-5745f196a2c6
+      -workspace "$WORKSPACE_XCODE"
+      -scheme $SCHEME_XCODE
+      build
+deployment:
+  testflight:
+    branch: submission
+    commands:
+      - xcrun -sdk iphoneos PackageApplication -v `pwd`/build/Debug-iphoneos/RefIOS.app   -o `pwd`/build/Tumbaios.ipa --sign $CODE_SINING_IDENTITY --embed="ad_hoc.p12"
