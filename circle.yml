@@ -4,6 +4,9 @@ dependencies:
     - curl -sSL https://get.rvm.io | bash -s stable --ruby
     - sudo gem install bundler
     - bundle install
+    - sudo gem install cupertino
+    - sudo gem install gym
+    - sudo gem install pilot
     - security import ad_hoc.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
     - sudo ios profiles:download "$AD_HOC_PROVISIONING_PROFILE" --type distribution -u "$APPLE_USER" -p "$APPLE_PASS"
     - security find-identity -v -p codesigning
