@@ -19,4 +19,5 @@ deployment:
   testflight:
     branch: submission
     commands:
-      - pilot upload -u dimitar.damyanov@insitex.com -i `pwd`build/RefIOS.ipa -a 1031215666 -s
+      - codesign -f -s "iPhone Distribution: Tumba Solutions Ltd EOOD (6E38FUWW9U)" `pwd`/build/RefIOS.ipa
+      - pilot upload -u dimitar.damyanov@insitex.com -i `pwd`/build/RefIOS.ipa -a 1031215666 -s
