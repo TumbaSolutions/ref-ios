@@ -5,10 +5,10 @@ dependencies:
     - sudo gem install bundler
     - bundle install
     - security import ad_hoc.p12 -k ~/Library/Keychains/login.keychain -P $DIMITAR_CSI_PASS -T /usr/bin/codesign -A
-    - sudo ios profiles:download "$AD_HOC_PROVISIONING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
+    - sudo ios profiles:download --type distribution "$AD_HOC_PROVISIONING_PROFILE" -u "$APPLE_USER" -p "$APPLE_PASS"
     - security find-identity -v -p codesigning
     - rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*
-    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/$EXPANDED_CODE_SIGN_IDENTITY.mobileprovision 
+    - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
 test:
   override:
     - gym build -w Untitled.xcworkspace -s RefIOS -c -t -o `pwd`/build -n RefIOS.ipa
