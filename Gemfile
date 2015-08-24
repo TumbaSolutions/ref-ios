@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 gem 'highline', '>=1.7.1'
-cupertino
-deliver
-gym
+gem 'cupertino'
+gem 'pilot'
+gem 'gym'
