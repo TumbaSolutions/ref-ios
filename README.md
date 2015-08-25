@@ -9,6 +9,7 @@ At this stage archiving the app is not necessary, that is way we can the standar
      GYM_SCHEME
      GYM_WORKSPACE
 2. Create circle.yml with the below standard configuration:
+
 ```
 test:
   override:
@@ -36,23 +37,27 @@ This stage requires archiving the code, signing it and uploading it to iTunes co
 2. Include the code signing identity in the githubrepo(not very safe) or upload it to a cloud storage(additional configuration required)
 3. Set code signing resuorce rules path to $(SDKROOT)/ResourceRules.plist in Xcode. Fixes a Xcode bug.
 4. Create a Gemfile with the below content. It is a library required by the 'cupertino' gem:
+
 ```
 source 'https://rubygems.org'
 gem 'highline', '>=1.7.1'
 ```
+
 5. Create the below variables: 
-   APPLE_USER - developer portal usr 
-   APPLE_PASS - developer portal pass
-   CSI_PASS - cosw signing identity export pass
-   AD_HOC_PROVISIONING_PROFILE - the name of the profile as is in developer portal
-   GYM_CODE_SIGNING_IDENTITY - the name of the code signing identity. ID is preferred.
-   GYM_OUTPUT_NAME - name of the archive. No need to end it with .ipa 
-   GYM_OUTPUT_DIRECTORY - name of the directory to hold the archive
-   GYM_WORKSPACE - the workspace 
-   GYM_SCHEME - the scheme 
-   DELIVER_USER - iTunes connect user for 'pilot' to use 
-   DELIVER_PASSWORD - iTunes Connect pass
+   # APPLE_USER - developer portal usr 
+   # APPLE_PASS - developer portal pass
+   # CSI_PASS - cosw signing identity export pass
+   # AD_HOC_PROVISIONING_PROFILE - the name of the profile as is in developer portal
+   # GYM_CODE_SIGNING_IDENTITY - the name of the code signing identity. ID is preferred.
+   # GYM_OUTPUT_NAME - name of the archive. No need to end it with .ipa 
+   # GYM_OUTPUT_DIRECTORY - name of the directory to hold the archive
+   # GYM_WORKSPACE - the workspace 
+   # GYM_SCHEME - the scheme 
+   # DELIVER_USER - iTunes connect user for 'pilot' to use 
+   # DELIVER_PASSWORD - iTunes Connect pass
+
 6. Create the circle.yml file with the below content. What ech command does is explained inline: 
+
 ```
 dependencies:
   pre:
