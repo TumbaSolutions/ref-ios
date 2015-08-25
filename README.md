@@ -1,6 +1,6 @@
 # iOS build and distribution automation 
 
-## This is a how to automate iOS CI-CD. To achieve this use 'gym' and 'pilot' tools from https://fastlane.tools .
+## This is a how to automate iOS CI-CD. 
 
 ### How to build, test and sign in the Development stage
 At this stage archiving the app is not necessary, that is way we can the standard Xcode tool xctool.
@@ -9,7 +9,7 @@ At this stage archiving the app is not necessary, that is way we can the standar
      GYM_SCHEME
      GYM_WORKSPACE
 2. Create circle.yml with the below standard configuration:
-'''
+```
 test:
   override:
     - xctool
@@ -24,7 +24,7 @@ test:
       -workspace $GYM_WORKSPACE
       -scheme $GYM_SCHEME
       build test
-'''
+```
 3. This alone should be enough to build and test your code. The default Xcode installation provided by circleci.com is 6.1
  
 ### How to build, archive and distribute in the Distribution stage 
@@ -36,10 +36,10 @@ This stage requires archiving the code, signing it and uploading it to iTunes co
 2. Include the code signing identity in the githubrepo(not very safe) or upload it to a cloud storage(additional configuration required)
 3. Set code signing resuorce rules path to $(SDKROOT)/ResourceRules.plist in Xcode. Fixes a Xcode bug.
 4. Create a Gemfile with the below content. It is a library required by the 'cupertino' gem:
-'''
+```
 source 'https://rubygems.org'
 gem 'highline', '>=1.7.1'
-'''
+```
 5. Create the below variables: 
    APPLE_USER - developer portal usr 
    APPLE_PASS - developer portal pass
@@ -53,7 +53,7 @@ gem 'highline', '>=1.7.1'
    DELIVER_USER - iTunes connect user for 'pilot' to use 
    DELIVER_PASSWORD - iTunes Connect pass
 6. Create the circle.yml file with the below content. What ech command does is explained inline: 
-'''
+```
 dependencies:
   pre:
     # Creates the direcory for the .ipa files.
@@ -85,7 +85,7 @@ deployment:
     commands:
       # Uploads the .ipa to iTunes Connect
       - pilot upload -u "$APPLE_USER" -i $GYM_OUTPUT_DIRECTORY/RefIOS.ipa -a 1031215666 -s
-'''
+```
    
 ## Resources
 
