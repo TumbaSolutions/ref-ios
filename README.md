@@ -5,12 +5,12 @@
 ### How to build, test and sign in the Development stage
 At this stage archiving the app is not necessary, that is way we can the standard Xcode tool xctool.
 
-- 1. Create the below variables in circleci.com:
+1. Create the below variables in circleci.com:
      GYM_SCHEME
      GYM_WORKSPACE
 
-- 2. Create circle.yml with the below standard configuration:
-- 
+2. Create circle.yml with the below standard configuration:
+ 
 ```
 test:
   override:
@@ -28,26 +28,26 @@ test:
       build test
 ```
 
-- 3. This alone should be enough to build and test your code. The default Xcode installation provided by circleci.com is 6.1
+3. This alone should be enough to build and test your code. The default Xcode installation provided by circleci.com is 6.1
  
 ### How to build, archive and distribute in the Distribution stage 
 This stage requires archiving the code, signing it and uploading it to iTunes connect. Since Fastlane`s 'gym' is doing this job much fadter and cleaner it is suggested to use it.
 'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. 
 
-- 1. Export a Distribution code signing identity through Xcode. 
+1. Export a Distribution code signing identity through Xcode. 
    !!!Absolutely mendatory is to password protect it!!!
 
-- 2. Include the code signing identity in the githubrepo(not very safe) or upload it to a cloud storage(additional configuration required)
+2. Include the code signing identity in the githubrepo(not very safe) or upload it to a cloud storage(additional configuration required)
 
-- 3. Set code signing resuorce rules path to $(SDKROOT)/ResourceRules.plist in Xcode. Fixes a Xcode bug.
+3. Set code signing resuorce rules path to $(SDKROOT)/ResourceRules.plist in Xcode. Fixes a Xcode bug.
 
-- 4. Create a Gemfile with the below content. It is a library required by the 'cupertino' gem:
+4. Create a Gemfile with the below content. It is a library required by the 'cupertino' gem:
 ```
 source 'https://rubygems.org'
 gem 'highline', '>=1.7.1'
 ```
 
-- 5. Create the below variables: 
+5. Create the below variables: 
      - APPLE_USER - developer portal usr 
      - APPLE_PASS - developer portal pass
      - CSI_PASS - cosw signing identity export pass
@@ -60,7 +60,7 @@ gem 'highline', '>=1.7.1'
      - DELIVER_USER - iTunes connect user for 'pilot' to use 
      - DELIVER_PASSWORD - iTunes Connect pass
 
-- 6. Create the circle.yml file with the below content. What ech command does is explained inline: 
+6. Create the circle.yml file with the below content. What ech command does is explained inline: 
 ```
 dependencies:
   pre:
