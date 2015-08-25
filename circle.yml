@@ -14,10 +14,10 @@ dependencies:
     - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
 test:
   override:
-    - gym build -w Untitled.xcworkspace -s RefIOS -e ~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision -c -o `pwd`/build -n RefIOS.ipa
-    - codesign -f -s "$AD_HOC_SIGNING_IDENTITY" `pwd`/build/RefIOS.ipa
+    - sudo gym build -w Untitled.xcworkspace -s RefIOS -e ~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision -c -o `pwd`/build -n RefIOS.ipa
+    - sudo codesign -f -s "$AD_HOC_SIGNING_IDENTITY" `pwd`/build/RefIOS.ipa
 deployment:
   testflight:
     branch: submission
     commands:
-      - pilot upload -u dimitar.damyanov@insitex.com -i `pwd`/build/RefIOS.ipa -a 1031215666 -s
+      - sudo pilot upload -u dimitar.damyanov@insitex.com -i `pwd`/build/RefIOS.ipa -a 1031215666 -s
