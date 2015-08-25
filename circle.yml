@@ -14,7 +14,7 @@ dependencies:
     - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
 test:
   override:
-    - gym build -w Untitled.xcworkspace -s RefIOS -e "~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision" -t -c -o `pwd`/build -n RefIOS.ipa
+    - gym build -w Untitled.xcworkspace -s RefIOS -e "~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision" --silent -c -o `pwd`/build -n RefIOS.ipa
     - codesign -f -s 8D9A7D571C5A89EE8F8745EEF791FD190276A9BF `pwd`/build/RefIOS.ipa
 deployment:
   testflight:
