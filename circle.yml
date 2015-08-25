@@ -1,6 +1,5 @@
 test:
   override:
-    - xctool reporter pretty CODE_SIGNING_REQUIRED=NO -workspace "Untitled.xcworkspace" -scheme "RefIOS" test -sdk iphonesimulator
     - xctool
       -reporter pretty
       -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
@@ -10,6 +9,6 @@ test:
       PROVISIONING_PROFILE=
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
-      -workspace "Untitled.xcworkspace"
-      -scheme "RefIOS"
+      -workspace $GYM_WORKSPACE
+      -scheme $GYM_SCHEME
       build test
