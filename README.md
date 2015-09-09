@@ -32,7 +32,7 @@ test:
  
 ### How to build, archive and distribute in the Distribution stage 
 This stage requires archiving the code, signing it and uploading it to iTunes connect. Since Fastlane`s 'gym' is doing this job much fadter and cleaner it is suggested to use it.
-'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. 
+'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. Use of xcconfig files is allowed with `--xcconfig` option passed to `gym`. Submitting the app to the iTunes Connect is done via fastlane `pilot`. 
 
 1. Export a Distribution code signing identity through Xcode. 
    !!!Absolutely mendatory is to password protect it!!!
@@ -85,7 +85,7 @@ dependencies:
     - cp *.mobileprovision  ~/Library/MobileDevice/Provisioning\ Profiles/ 
 test:
   override:
-    # Builds and archives the code. Configuration is retrieved from the Xcode project settings and the GYM_* variables 
+    # Builds and archives the code. Configuration is retrieved from the Xcode project settings and the GYM_* variables
     - gym
 deployment:
   testflight:
@@ -98,5 +98,5 @@ deployment:
 ## Resources
 
 Cupertino - https://github.com/nomad/Cupertino
-Fastlane - https://github.com/nomad/Cupertino
+Fastlane - https://fastlane.tools/
 CircleCi - https://circleci.com/docs/ios 
