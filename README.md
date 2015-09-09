@@ -32,7 +32,7 @@ This stage requires archiving the code, signing it and uploading it to iTunes co
 'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. 
 
 1. Export a Distribution code signing identity through Xcode. 
-   !!!Absolutely mendatory is to password protect it!!!
+   - !!!Absolutely mendatory is to password protect it!!!
 2. Include the code signing identity in the githubrepo(not very safe) or upload it to a cloud storage(additional configuration required)
 3. Set code signing resuorce rules path to $(SDKROOT)/ResourceRules.plist in Xcode. Fixes a Xcode bug.
 4. Create a Gemfile with the below content. It is a library required by the 'cupertino' gem:
@@ -90,7 +90,7 @@ deployment:
 ## Resources
 
 Cupertino - https://github.com/nomad/Cupertino
-Fastlane - https://github.com/nomad/Cupertino
+Fastlane - https://fastlane.tools
 CircleCi - https://circleci.com/docs/ios 
 
 
