@@ -3,11 +3,11 @@
 ## This is a how to automate iOS CI-CD. To achieve this use 'gym' and 'pilot' tools from https://fastlane.tools .
 
 ### How to build, test and sign in the Development stage
-At this stage archiving the app is not necessary, that is way we can the standard Xcode tool xctool.
+At this stage archiving the app is not necessary, that is why we can use the standard Xcode tool xctool.
 
 1. Create the below variables in circleci.com:
-     GYM_SCHEME
-     GYM_WORKSPACE
+   - GYM_SCHEME
+   - GYM_WORKSPACE
 2. Create circle.yml with the below standard configuration:
 '''
 test:
@@ -29,7 +29,7 @@ test:
  
 ### How to build, archive and distribute in the Distribution stage 
 This stage requires archiving the code, signing it and uploading it to iTunes connect. Since Fastlane`s 'gym' is doing this job much fadter and cleaner it is suggested to use it.
-'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. 
+'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. Of course xcconfig files can be used to overwrite some settings. 
 
 1. Export a Distribution code signing identity through Xcode. 
    - !!!Absolutely mendatory is to password protect it!!!
