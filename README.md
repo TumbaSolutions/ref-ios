@@ -3,11 +3,11 @@
 ## This is a how to automate iOS CI-CD. 
 
 ### How to build, test and sign in the Development stage
-At this stage archiving the app is not necessary, that is way we can the standard Xcode tool xctool.
+At this stage archiving the app is not necessary, that is way we can use the standard Xcode tool xctool.
 
 1. Create the below variables in circleci.com:
-     GYM_SCHEME
-     GYM_WORKSPACE
+   - GYM_SCHEME
+   - GYM_WORKSPACE
 
 2. Create circle.yml with the below standard configuration:
  
