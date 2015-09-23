@@ -3,7 +3,7 @@
 ## This is a how to automate iOS CI-CD. To achieve this use 'gym' and 'pilot' tools from https://fastlane.tools .
 
 ### How to build, test and sign in the Development stage
-At this stage archiving the app is not necessary, that is why we can use the standard Xcode tool xctool.
+At this stage archiving the app is not necessary, that is why we use the standard Xcode tool xctool.
 
 1. Create the below variables in circleci.com:
    - GYM_SCHEME
