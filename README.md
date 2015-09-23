@@ -27,7 +27,7 @@ test:
 '''
 3. This alone should be enough to build and test your code. The default Xcode installation provided by circleci.com is 6.1
  
-### How to build, archive and distribute in the Distribution stage 
+### How to build, archive and distribute in the Distribution/AdHoc stage 
 This stage requires archiving the code, signing it and uploading it to iTunes connect. Since Fastlane`s 'gym' is doing this job much fadter and cleaner it is suggested to use it.
 'gym' inherits all the projects settings directly from the Xcode project. This means that the code signing identity, provisioning profile and bundle identifier are set properly beforehand. The version number of the app should be incremented before git push, else iTunes connect will reject it. Of course xcconfig files can be used to overwrite some settings. 
 
