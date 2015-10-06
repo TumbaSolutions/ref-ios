@@ -13,5 +13,5 @@ test:
       -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
       -sdk iphonesimulator
       -workspace $GYM_WORKSPACE
-      -scheme $GYM_SCHEME
+      -scheme 'RefIOS'
       build test
