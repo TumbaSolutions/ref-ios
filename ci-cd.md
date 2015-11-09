@@ -12,8 +12,8 @@
  ## Continuous Integration
  - `fastlane init` - creates the fastlane directory structure in the project repo.
  - add team_name, team_id and app_identifier in the Appfile
- - Configure your pipelines in the Fastfile-aka lanes. For Developmeny we have:
-   - prerequisites - under `before_all` - i.e. 'cocoapods', increment_build_number etc.
+ - Configure your pipelines in the Fastfile-aka lanes. For Development we have:
+   - 'before_all' block - manages dependencies, i.e. 'cocoapods', 'increment_build_number' etc.
    - test lane - runs xctest 
  - circle.yml configures the build environment and calls the build/test commands:
    - specify Xcode version on the CircleCI side
